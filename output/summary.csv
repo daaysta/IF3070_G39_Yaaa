@@ -1,0 +1,4 @@
+label,algorithm,run,params,initial_value,final_value,iterations,duration_sec,valid,file
+hc_sideways,hc_sideways,1,"{""max_sideways"": 100, ""max_iter"": 10000, ""reset_on_improve"": true}",1399,1594,181,2.9293,True,..\output\hc\run1.json
+hc_sideways,hc_sideways,2,"{""max_sideways"": 100, ""max_iter"": 10000, ""reset_on_improve"": true}",1330,1594,138,2.1973,True,..\output\hc\run2.json
+hc_sideways,hc_sideways,3,"{""max_sideways"": 100, ""max_iter"": 10000, ""reset_on_improve"": true}",1422,1594,188,3.0902,True,..\output\hc\run3.json
