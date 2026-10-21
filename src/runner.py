@@ -8,6 +8,12 @@ import random
 from models import Vehicle, Ship
 from state import State
 from hill_climbing import hill_climbing_sideways
+from result import SearchResult
+
+try:
+    import visualize
+except ImportError:
+    visualize = None
 
 N_RUNS = 3
 HC_MAX_SIDEWAYS = 100
@@ -49,6 +55,8 @@ def _save(result, path, run_id, label):
     d["final_state_text"] = result.final_state.render_text()
     with open(path, "w", encoding="utf-8") as f:
         json.dump(d, f, indent=2)
+    if visualize is not None:
+        visualize.save_all(result, path[:-len(".json")])
     return {
         "label": label, "algorithm": result.name, "run": run_id,
         "params": json.dumps(result.params),
@@ -56,7 +64,7 @@ def _save(result, path, run_id, label):
         "iterations": result.iterations,
         "duration_sec": round(result.duration, 4),
         "valid": d["final_state"]["valid"],
-        "file": os.path.relpath(path),
+        "file": os.path.relpath(path, os.path.dirname(os.path.dirname(path))).replace("\\", "/"),
     }
 
 
@@ -91,10 +99,34 @@ def run_sa(vehicles, ship, out, seed):
     return rows
 
 
+def _ga_runner():
+    fn = _load("ga", "genetic_algorithm")
+    if fn is None:
+        return None
+
+    def run(vehicles, ship, population_size, generations, seed):
+        d = fn(vehicles, ship, jumlah_populasi=population_size,
+               iterasi=generations, seed=seed)
+        return SearchResult(
+            name="ga",
+            params={"population_size": population_size,
+                    "generations": generations},
+            initial_state=d["state_awal"],
+            final_state=d["state_akhir"],
+            history=d["riwayat_max"],
+            iterations=d["iterasi"],
+            duration=d["durasi"],
+            extras={"avg_history": d["riwayat_rata"],
+                    "population_size": d["jumlah_populasi"]},
+        )
+
+    return run
+
+
 def run_ga(vehicles, ship, out, seed):
-    ga = _load("genetic_algorithm", "genetic_algorithm")
+    ga = _ga_runner()
     if ga is None:
-        print("[GA] dilewati: genetic_algorithm.genetic_algorithm belum ada")
+        print("[GA] dilewati: ga.genetic_algorithm belum ada")
         return []
     configs = [("ga_iter", GA_CONTROL_POP, g) for g in GA_ITER_VARIATIONS]
     configs += [("ga_pop", p, GA_CONTROL_ITER) for p in GA_POP_VARIATIONS]
@@ -102,8 +134,7 @@ def run_ga(vehicles, ship, out, seed):
     for group, pop, gens in configs:
         for r in range(1, N_RUNS + 1):
             s = seed + r
-            res = ga(vehicles, ship, population_size=pop, generations=gens,
-                     rng=random.Random(s))
+            res = ga(vehicles, ship, population_size=pop, generations=gens, seed=s)
             label = f"{group}_pop{pop}_gen{gens}"
             rows.append(_save(res, f"{out}/ga/{label}_run{r}.json", r, label))
             print(f"[GA] {label} run {r}: value={res.final_value} t={res.duration:.2f}s")
@@ -136,6 +167,9 @@ def main():
     inst = {"ship": vars(ship), "vehicles": [vars(v) for v in vehicles]}
     with open(f"{a.out}/instance.json", "w", encoding="utf-8") as f:
         json.dump(inst, f, indent=2)
+
+    if visualize is None:
+        print("matplotlib belum terpasang, PNG dilewati (py -m pip install matplotlib)")
 
     want = set(a.only.split(","))
     rows = []
