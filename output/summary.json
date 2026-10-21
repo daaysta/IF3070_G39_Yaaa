@@ -4,35 +4,35 @@
     "algorithm": "hc_sideways",
     "run": 1,
     "params": "{\"max_sideways\": 100, \"max_iter\": 10000, \"reset_on_improve\": true}",
-    "initial_value": 1399,
-    "final_value": 1594,
-    "iterations": 181,
-    "duration_sec": 2.9293,
+    "initial_value": 1598,
+    "final_value": 2039,
+    "iterations": 133,
+    "duration_sec": 2.4361,
     "valid": true,
-    "file": "..\\output\\hc\\run1.json"
+    "file": "hc/run1.json"
   },
   {
     "label": "hc_sideways",
     "algorithm": "hc_sideways",
     "run": 2,
     "params": "{\"max_sideways\": 100, \"max_iter\": 10000, \"reset_on_improve\": true}",
-    "initial_value": 1330,
-    "final_value": 1594,
-    "iterations": 138,
-    "duration_sec": 2.1973,
+    "initial_value": 1689,
+    "final_value": 2074,
+    "iterations": 332,
+    "duration_sec": 5.3793,
     "valid": true,
-    "file": "..\\output\\hc\\run2.json"
+    "file": "hc/run2.json"
   },
   {
     "label": "hc_sideways",
     "algorithm": "hc_sideways",
     "run": 3,
     "params": "{\"max_sideways\": 100, \"max_iter\": 10000, \"reset_on_improve\": true}",
-    "initial_value": 1422,
-    "final_value": 1594,
-    "iterations": 188,
-    "duration_sec": 3.0902,
+    "initial_value": 1584,
+    "final_value": 2034,
+    "iterations": 339,
+    "duration_sec": 5.9493,
     "valid": true,
-    "file": "..\\output\\hc\\run3.json"
+    "file": "hc/run3.json"
   }
 ]
