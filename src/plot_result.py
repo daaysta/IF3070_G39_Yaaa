@@ -6,8 +6,7 @@ import matplotlib.pyplot as plt
 from models import Vehicle, Ship
 from state import State
 from result import SearchResult
-from visualize import save_all, finish, BLUE, ORANGE, GREEN
-
+from visualize import save_all, finish, plot_base, BLUE, ORANGE, GREEN
 def restore(d, vehicles, ship):
     def state(s):
         obj=State(vehicles,ship,{k:(p['x'],p['y'],p['orient']) for k,p in s['inside'].items()})
@@ -26,7 +25,7 @@ def build(out):
     for folder in ('hc','sa','ga'):
         for p in sorted((out/folder).glob('*.json')):
             d=json.loads(p.read_text()); res=restore(d,vehicles,ship)
-            save_all(res,str(p.with_suffix('')))
+            save_all(res,plot_base(p))
             records.append((p,d))
             summary.append(dict(label=d['label'],algorithm=d['name'],run=d['run_id'],
                 params=json.dumps(d['params']),initial_value=d['initial_value'],final_value=d['final_value'],
@@ -54,7 +53,6 @@ def build(out):
             bars=ax.bar(labels,vals,color=GREEN);ax.bar_label(bars,fmt='%.3f' if key=='duration_sec' else '%d',padding=3)
             ax.set(title=title,ylabel=ylabel,ylim=(0,max(vals)*1.2+0.01))
         finish(fig,out/'plots/sa_perbandingan_3_run.png')
-    # Pisahkan konfigurasi GA agar 18 run tidak dianggap 18 replikasi identik.
     groups={}
     for _,d in records:groups.setdefault(d['label'],[]).append(d)
     if groups:

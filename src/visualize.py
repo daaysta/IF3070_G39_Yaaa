@@ -9,8 +9,12 @@ from state import get_dim
 
 plt.rcParams.update({'font.size': 10, 'axes.spines.top': False,
                      'axes.spines.right': False, 'axes.titleweight': 'bold'})
-BLUE, ORANGE, GREEN = '#1d4e89', '#d87628', '#386641'
+BLUE, ORANGE, GREEN = '#1d4e89', '#d87628', '#2a9d8f'
 
+
+def plot_base(json_path):
+    p = Path(json_path)
+    return str(p.parent.parent / 'plots' / p.parent.name / p.stem)
 
 def finish(fig, path):
     Path(path).parent.mkdir(parents=True, exist_ok=True)

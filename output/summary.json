@@ -7,7 +7,7 @@
     "initial_value": 798,
     "final_value": 1127,
     "iterations": 124,
-    "duration_sec": 0.5183,
+    "duration_sec": 0.5223971000000347,
     "valid": true,
     "file": "hc/run1.json"
   },
@@ -19,7 +19,7 @@
     "initial_value": 764,
     "final_value": 1175,
     "iterations": 113,
-    "duration_sec": 0.4511,
+    "duration_sec": 0.5084077999999863,
     "valid": true,
     "file": "hc/run2.json"
   },
@@ -31,45 +31,45 @@
     "initial_value": 982,
     "final_value": 1095,
     "iterations": 115,
-    "duration_sec": 0.4463,
+    "duration_sec": 0.4783896999999797,
     "valid": true,
     "file": "hc/run3.json"
   },
   {
-    "label": "ga_iter_pop30_gen50",
-    "algorithm": "ga",
+    "label": "sa",
+    "algorithm": "sa",
     "run": 1,
-    "params": "{\"population_size\": 30, \"generations\": 50}",
-    "initial_value": 977,
-    "final_value": 1064,
-    "iterations": 50,
-    "duration_sec": 0.0981,
+    "params": "{\"initial_temp\": 100.0, \"cooling_rate\": 0.995, \"min_temp\": 0.01, \"max_iter\": 5000, \"stuck_window\": 100, \"evaluation_bias\": 0.0}",
+    "initial_value": 798,
+    "final_value": 1109,
+    "iterations": 1838,
+    "duration_sec": 0.05376200000000608,
     "valid": true,
-    "file": "ga/ga_iter_pop30_gen50_run1.json"
+    "file": "sa/run1.json"
   },
   {
-    "label": "ga_iter_pop30_gen50",
-    "algorithm": "ga",
+    "label": "sa",
+    "algorithm": "sa",
     "run": 2,
-    "params": "{\"population_size\": 30, \"generations\": 50}",
-    "initial_value": 968,
-    "final_value": 1057,
-    "iterations": 50,
-    "duration_sec": 0.0996,
+    "params": "{\"initial_temp\": 100.0, \"cooling_rate\": 0.995, \"min_temp\": 0.01, \"max_iter\": 5000, \"stuck_window\": 100, \"evaluation_bias\": 0.0}",
+    "initial_value": 764,
+    "final_value": 1095,
+    "iterations": 1838,
+    "duration_sec": 0.06536929999992935,
     "valid": true,
-    "file": "ga/ga_iter_pop30_gen50_run2.json"
+    "file": "sa/run2.json"
   },
   {
-    "label": "ga_iter_pop30_gen50",
-    "algorithm": "ga",
+    "label": "sa",
+    "algorithm": "sa",
     "run": 3,
-    "params": "{\"population_size\": 30, \"generations\": 50}",
+    "params": "{\"initial_temp\": 100.0, \"cooling_rate\": 0.995, \"min_temp\": 0.01, \"max_iter\": 5000, \"stuck_window\": 100, \"evaluation_bias\": 0.0}",
     "initial_value": 982,
-    "final_value": 1106,
-    "iterations": 50,
-    "duration_sec": 0.0991,
+    "final_value": 1127,
+    "iterations": 1838,
+    "duration_sec": 0.04880230000003394,
     "valid": true,
-    "file": "ga/ga_iter_pop30_gen50_run3.json"
+    "file": "sa/run3.json"
   },
   {
     "label": "ga_iter_pop30_gen100",
@@ -79,7 +79,7 @@
     "initial_value": 977,
     "final_value": 1064,
     "iterations": 100,
-    "duration_sec": 0.1782,
+    "duration_sec": 0.24968194961547852,
     "valid": true,
     "file": "ga/ga_iter_pop30_gen100_run1.json"
   },
@@ -91,7 +91,7 @@
     "initial_value": 968,
     "final_value": 1057,
     "iterations": 100,
-    "duration_sec": 0.2214,
+    "duration_sec": 0.22967219352722168,
     "valid": true,
     "file": "ga/ga_iter_pop30_gen100_run2.json"
   },
@@ -103,7 +103,7 @@
     "initial_value": 982,
     "final_value": 1114,
     "iterations": 100,
-    "duration_sec": 0.1874,
+    "duration_sec": 0.23162579536437988,
     "valid": true,
     "file": "ga/ga_iter_pop30_gen100_run3.json"
   },
@@ -115,7 +115,7 @@
     "initial_value": 977,
     "final_value": 1064,
     "iterations": 200,
-    "duration_sec": 0.3401,
+    "duration_sec": 0.42995643615722656,
     "valid": true,
     "file": "ga/ga_iter_pop30_gen200_run1.json"
   },
@@ -127,7 +127,7 @@
     "initial_value": 968,
     "final_value": 1057,
     "iterations": 200,
-    "duration_sec": 0.3603,
+    "duration_sec": 0.4041285514831543,
     "valid": true,
     "file": "ga/ga_iter_pop30_gen200_run2.json"
   },
@@ -139,9 +139,45 @@
     "initial_value": 982,
     "final_value": 1114,
     "iterations": 200,
-    "duration_sec": 0.3793,
+    "duration_sec": 0.40427589416503906,
     "valid": true,
     "file": "ga/ga_iter_pop30_gen200_run3.json"
+  },
+  {
+    "label": "ga_iter_pop30_gen50",
+    "algorithm": "ga",
+    "run": 1,
+    "params": "{\"population_size\": 30, \"generations\": 50}",
+    "initial_value": 977,
+    "final_value": 1064,
+    "iterations": 50,
+    "duration_sec": 0.11607670783996582,
+    "valid": true,
+    "file": "ga/ga_iter_pop30_gen50_run1.json"
+  },
+  {
+    "label": "ga_iter_pop30_gen50",
+    "algorithm": "ga",
+    "run": 2,
+    "params": "{\"population_size\": 30, \"generations\": 50}",
+    "initial_value": 968,
+    "final_value": 1057,
+    "iterations": 50,
+    "duration_sec": 0.1268138885498047,
+    "valid": true,
+    "file": "ga/ga_iter_pop30_gen50_run2.json"
+  },
+  {
+    "label": "ga_iter_pop30_gen50",
+    "algorithm": "ga",
+    "run": 3,
+    "params": "{\"population_size\": 30, \"generations\": 50}",
+    "initial_value": 982,
+    "final_value": 1106,
+    "iterations": 50,
+    "duration_sec": 0.12202739715576172,
+    "valid": true,
+    "file": "ga/ga_iter_pop30_gen50_run3.json"
   },
   {
     "label": "ga_pop_pop10_gen100",
@@ -151,7 +187,7 @@
     "initial_value": 977,
     "final_value": 1056,
     "iterations": 100,
-    "duration_sec": 0.0547,
+    "duration_sec": 0.07559847831726074,
     "valid": true,
     "file": "ga/ga_pop_pop10_gen100_run1.json"
   },
@@ -163,7 +199,7 @@
     "initial_value": 968,
     "final_value": 1109,
     "iterations": 100,
-    "duration_sec": 0.0546,
+    "duration_sec": 0.06155061721801758,
     "valid": true,
     "file": "ga/ga_pop_pop10_gen100_run2.json"
   },
@@ -175,7 +211,7 @@
     "initial_value": 982,
     "final_value": 1045,
     "iterations": 100,
-    "duration_sec": 0.0536,
+    "duration_sec": 0.06034970283508301,
     "valid": true,
     "file": "ga/ga_pop_pop10_gen100_run3.json"
   },
@@ -187,7 +223,7 @@
     "initial_value": 977,
     "final_value": 1064,
     "iterations": 100,
-    "duration_sec": 0.1801,
+    "duration_sec": 0.2428135871887207,
     "valid": true,
     "file": "ga/ga_pop_pop30_gen100_run1.json"
   },
@@ -199,7 +235,7 @@
     "initial_value": 968,
     "final_value": 1057,
     "iterations": 100,
-    "duration_sec": 0.1899,
+    "duration_sec": 0.21712160110473633,
     "valid": true,
     "file": "ga/ga_pop_pop30_gen100_run2.json"
   },
@@ -211,7 +247,7 @@
     "initial_value": 982,
     "final_value": 1114,
     "iterations": 100,
-    "duration_sec": 0.1979,
+    "duration_sec": 0.292555570602417,
     "valid": true,
     "file": "ga/ga_pop_pop30_gen100_run3.json"
   },
@@ -223,7 +259,7 @@
     "initial_value": 1019,
     "final_value": 1095,
     "iterations": 100,
-    "duration_sec": 0.3179,
+    "duration_sec": 0.45201873779296875,
     "valid": true,
     "file": "ga/ga_pop_pop50_gen100_run1.json"
   },
@@ -235,7 +271,7 @@
     "initial_value": 970,
     "final_value": 1117,
     "iterations": 100,
-    "duration_sec": 0.3478,
+    "duration_sec": 0.45116591453552246,
     "valid": true,
     "file": "ga/ga_pop_pop50_gen100_run2.json"
   },
@@ -247,7 +283,7 @@
     "initial_value": 996,
     "final_value": 1109,
     "iterations": 100,
-    "duration_sec": 0.3117,
+    "duration_sec": 0.4030592441558838,
     "valid": true,
     "file": "ga/ga_pop_pop50_gen100_run3.json"
   }
