@@ -6,12 +6,12 @@
     "min_temp": 0.01,
     "max_iter": 5000,
     "stuck_window": 100,
-    "evaluation_bias": 0.0
+    "skor_evaluasi": 0.0
   },
   "final_value": 1095,
   "initial_value": 764,
   "iterations": 1838,
-  "duration_sec": 0.06536929999992935,
+  "duration_sec": 0.11691240000072867,
   "initial_state": {
     "value": 764,
     "total_weight": 95,

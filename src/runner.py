@@ -155,7 +155,8 @@ def write_summary(rows, out):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input")
-    ap.add_argument("--out", default=os.path.join(os.path.dirname(__file__), "..", "output"))
+    ap.add_argument("--out", default=os.path.abspath(
+        os.path.join(os.path.dirname(__file__), "..", "output")))
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--n-vehicles", type=int, default=30)
     ap.add_argument("--only", default="hc,sa,ga")

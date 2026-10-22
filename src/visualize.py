@@ -13,7 +13,7 @@ BLUE, ORANGE, GREEN = '#1d4e89', '#d87628', '#2a9d8f'
 
 
 def plot_base(json_path):
-    p = Path(json_path)
+    p = Path(json_path).resolve()
     return str(p.parent.parent / 'plots' / p.parent.name / p.stem)
 
 def finish(fig, path):

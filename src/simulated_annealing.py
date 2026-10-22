@@ -7,13 +7,13 @@ from result import SearchResult
 
 def simulated_annealing(initial, initial_temp=100.0, cooling_rate=0.995,
                         min_temp=0.01, max_iter=5000, stuck_window=100,
-                        evaluation_bias=0.0, rng=None):
+                        skor_evaluasi=0.0, rng=None):
     if not initial.is_valid():
         raise ValueError('Initial state tidak valid')
     if not (math.isfinite(initial_temp) and math.isfinite(min_temp)
             and 0 < min_temp < initial_temp and 0 < cooling_rate < 1):
         raise ValueError('Perlu 0 < min_temp < initial_temp dan 0 < cooling_rate < 1')
-    if max_iter < 1 or stuck_window < 1 or not math.isfinite(evaluation_bias):
+    if max_iter < 1 or stuck_window < 1 or not math.isfinite(skor_evaluasi):
         raise ValueError('Parameter iterasi/window/bias tidak valid')
     rng = rng or random.Random()
     start = time.perf_counter()
@@ -30,7 +30,7 @@ def simulated_annealing(initial, initial_temp=100.0, cooling_rate=0.995,
         # Tidak ada proposal bukan bukti bahwa seluruh neighborhood kosong.
         candidate = current.random_neighbor(rng) if current.vehicles else None
         delta = None if candidate is None else candidate.value() - current.value()
-        effective_delta = None if delta is None else delta + evaluation_bias
+        effective_delta = None if delta is None else delta + skor_evaluasi
         prob = None if delta is None else math.exp(min(0.0, effective_delta / temp))
         draw = rng.random() if prob is not None and prob < 1 else None
         accepted = prob is not None and (prob == 1 or draw < prob)
@@ -56,7 +56,7 @@ def simulated_annealing(initial, initial_temp=100.0, cooling_rate=0.995,
     return SearchResult(
         name='sa', params=dict(initial_temp=initial_temp, cooling_rate=cooling_rate,
             min_temp=min_temp, max_iter=max_iter, stuck_window=stuck_window,
-            evaluation_bias=evaluation_bias), initial_state=initial.copy(),
+            skor_evaluasi=skor_evaluasi), initial_state=initial.copy(),
         final_state=current, history=history, iterations=len(trace),
         duration=time.perf_counter()-start,
         extras=dict(trace=trace, best_history=best_history, best_state=best.to_dict(),
