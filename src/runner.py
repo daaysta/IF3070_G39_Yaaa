@@ -25,7 +25,7 @@ GA_POP_VARIATIONS = (10, 30, 50)
 
 def make_instance(seed=42, n=30, ship=None):
     rng = random.Random(seed)
-    ship = ship or Ship(w=10, l=20, max_capacity=500)
+    ship = ship or Ship(w=8, l=12, max_capacity=100)
     vehicles = [
         Vehicle(f"V{i + 1}", w=rng.randint(1, 3), l=rng.randint(2, 4),
                 fee=rng.randint(10, 100), weight=rng.randint(2, 10),
