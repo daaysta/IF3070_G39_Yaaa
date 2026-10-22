@@ -56,7 +56,7 @@ def _save(result, path, run_id, label):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(d, f, indent=2)
     if visualize is not None:
-        visualize.save_all(result, path[:-len(".json")])
+        visualize.save_all(result, visualize.plot_base(path))
     return {
         "label": label, "algorithm": result.name, "run": run_id,
         "params": json.dumps(result.params),
